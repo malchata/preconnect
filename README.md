@@ -6,13 +6,13 @@ A nano-sized `preconnect` hint wrapper.
   <strong>ES5 (.js) version</strong>
 </p>
 <p align="center">
-  <img src="https://img.badgesize.io/malchata/preconnect/master/dist/preconnect.min.js?label=Uncompressed" alt="Uncompressed">&nbsp;<img src="https://img.badgesize.io/malchata/preconnect/master/dist/preconnect.min.js?compression=gzip&label=gzip" alt="gzip">&nbsp;<img src="https://img.badgesize.io/malchata/preconnect/master/dist/preconnect.min.js?compression=brotli&label=brotli" alt="Brotli">
+  <img src="https://img.badgesize.io/malchata/preconnect/master/dist/preconnect.min.js?label=Uncompressed&v2=v2" alt="Uncompressed">&nbsp;<img src="https://img.badgesize.io/malchata/preconnect/master/dist/preconnect.min.js?compression=gzip&label=gzip&v2=v2" alt="gzip">&nbsp;<img src="https://img.badgesize.io/malchata/preconnect/master/dist/preconnect.min.js?compression=brotli&label=brotli&v2=v2" alt="Brotli">
 </p>
 <p align="center">
   <strong>ES6 (.mjs) version</strong>
 </p>
 <p align="center">
-  <img src="https://img.badgesize.io/malchata/preconnect/master/dist/preconnect.min.mjs?label=Uncompressed" alt="Uncompressed">&nbsp;<img src="https://img.badgesize.io/malchata/preconnect/master/dist/preconnect.min.mjs?compression=gzip&label=gzip" alt="gzip">&nbsp;<img src="https://img.badgesize.io/malchata/preconnect/master/dist/preconnect.min.mjs?compression=brotli&label=brotli" alt="Brotli">
+  <img src="https://img.badgesize.io/malchata/preconnect/master/dist/preconnect.min.mjs?label=Uncompressed&v2=v2" alt="Uncompressed">&nbsp;<img src="https://img.badgesize.io/malchata/preconnect/master/dist/preconnect.min.mjs?compression=gzip&label=gzip&v2=v2" alt="gzip">&nbsp;<img src="https://img.badgesize.io/malchata/preconnect/master/dist/preconnect.min.mjs?compression=brotli&label=brotli&v2=v2" alt="Brotli">
 </p>
 
 ---
@@ -29,8 +29,8 @@ npm i preconnect --save
 
 If you're not the npm type, grab one (or both) of the minified versions in [this repo's `dist` folder](https://github.com/malchata/preconnect/tree/master/dist). There are two minified versions:
 
-- [`preconnect.min.js`](https://raw.githubusercontent.com/malchata/yall.js/preconnect/dist/preconnect.min.js) is the Babel-fied ES5 build. It assigns a variable named `preconnect` on the `window`.
-- [`preconnect.min.mjs`](https://raw.githubusercontent.com/malchata/yall.js/preconnect/dist/preconnect.min.js) is the untransformed minified ES6 build. Its `default` `export` is a single eponymously named function.
+- [`preconnect.min.js`](https://raw.githubusercontent.com/malchata/preconnect/master/dist/preconnect.min.js) is the Babel-fied ES5 build. It assigns a variable named `preconnect` on the `window`.
+- [`preconnect.min.mjs`](https://raw.githubusercontent.com/malchata/preconnect/master/dist/preconnect.min.mjs) is the untransformed minified ES6 build. Its `default` `export` is a single eponymously named function.
 
 ## Usage
 
