@@ -1,0 +1,41 @@
+{
+  "name": "preconnect",
+  "version": "1.0.0",
+  "description": "A nano-sized `preconnect` hint wrapper.",
+  "main": "dist/preconnect.js",
+  "module": "src/preconnect.mjs",
+  "scripts": {
+    "clean": "rm -rf dist/",
+    "copy": "cp -fv ./dist/preconnect.min.js ./test/js",
+    "build": "npm run clean && npx rollup -c && npm run copy",
+    "test": "npm run build && node http.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/malchata/preconnect.git"
+  },
+  "keywords": [
+    "rel",
+    "preconnect",
+    "dns-prefetch",
+    "web",
+    "performance",
+    "webperf"
+  ],
+  "author": "Jeremy L. Wagner <jeremy.l.wagner@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/malchata/preconnect/issues"
+  },
+  "homepage": "https://github.com/malchata/preconnect#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "eslint": "^6.1.0",
+    "express": "^4.17.1",
+    "rollup": "^1.17.0",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-terser": "^5.1.1"
+  }
+}

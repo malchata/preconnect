@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>
+      Preconnect Test
+    </title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: sans-serif;
+        padding: .625rem;
+      }
+
+      p {
+        margin-bottom: .625rem;
+      }
+    </style>
+  </head>
+  <body>
+    <p><a id="preconnect-prefetch-link" href="https://alistapart.com/" rel="noopener">Preconnect with DNS prefetch.</a></p>
+    <p><a id="preconnect-link" href="https://css-tricks.com/" rel="noopener">Preconnect without DNS prefetch.</a></p>
+    <p><a id="local-preconnect-link" href="http://localhost:8080/" rel="noopener">Local preconnect without DNS prefetch.</a></p>
+    <script src="/js/preconnect.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var preconnectPrefetchLink = document.getElementById("preconnect-prefetch-link");
+        var preconnectLink = document.getElementById("preconnect-link");
+        var localPreconnectLink = document.getElementById("local-preconnect-link");
+
+        var preconnecterPrefetcher = new preconnect({
+          getDns: true
+        });
+        var preconnecter = new preconnect();
+        var eventOptions = {
+          once: true
+        };
+
+        preconnectPrefetchLink.addEventListener("mouseover", function (event) {
+          preconnecterPrefetcher.add(event.target.href);
+        }, eventOptions);
+
+        preconnectLink.addEventListener("mouseover", function (event) {
+          preconnecter.add(event.target.href);
+        }, eventOptions);
+
+        localPreconnectLink.addEventListener("mouseover", function (event) {
+          preconnecter.add(event.target.href);
+        }, eventOptions);
+      });
+    </script>
+  </body>
+</html>
