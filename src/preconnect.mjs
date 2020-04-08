@@ -1,33 +1,42 @@
-function preconnect (options) {
-  this.options = options || {};
-  this.timeout = "timeout" in this.options ? this.options.timeout : 0;
-}
+const preconnect = (function (win, doc) {
+  let timeout, getDns, l = "link", p = "preconnect", ap = "appendChild", ce = "createElement", ric = "requestIdleCallback";
 
-preconnect.prototype.injectLinkEl = function (linkEl, hint, origin) {
-  linkEl.rel = hint;
-  linkEl.href = origin;
+  const injectLinkEl = (linkEl, hint, origin) => {
+    linkEl.rel = hint;
+    linkEl.href = origin;
 
-  if (hint == "preconnect" && origin.indexOf(document.location.href) != 0) {
-    linkEl.crossOrigin = "anonymous";
+    if (hint == p && origin.indexOf(doc.location.href) != 0) {
+      linkEl.crossOrigin = "anonymous";
+    }
+
+    if (win[ric] && timeout) {
+      win[ric](() => {
+        doc.head[ap](linkEl);
+      }, {
+        timeout
+      });
+
+      return;
+    }
+
+    doc.head[ap](linkEl);
+  };
+
+  function preconnect (options) {
+    options = options || {};
+    timeout = options.timeout || 0;
+    getDns = options.getDns || false;
   }
 
-  if ("requestIdleCallback" in window && this.timeout > 0) {
-    requestIdleCallback(() => {
-      document.head.appendChild(linkEl);
-    }, {
-      timeout: this.timeout
-    });
-  } else {
-    document.head.appendChild(linkEl);
-  }
-};
+  preconnect.prototype.add = origin => {
+    injectLinkEl(doc[ce](l), p, origin);
 
-preconnect.prototype.add = function (origin) {
-  this.injectLinkEl(document.createElement("link"), "preconnect", origin);
+    if (getDns) {
+      injectLinkEl(doc[ce](l), "dns-prefetch", origin);
+    }
+  };
 
-  if (this.options.getDns || false) {
-    this.injectLinkEl(document.createElement("link"), "dns-prefetch", origin);
-  }
-};
+  return preconnect;
+})(window, document);
 
 export default preconnect;

@@ -48,7 +48,7 @@ export default [
         presets: [
           [
             "@babel/preset-env", {
-              targets: ">0.5%, last 5 versions, ie > 10, not dead",
+              targets: "ie 11",
               loose: true
             }
           ]

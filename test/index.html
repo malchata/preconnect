@@ -35,7 +35,8 @@
         var localPreconnectLink = document.getElementById("local-preconnect-link");
 
         var preconnecterPrefetcher = new preconnect({
-          getDns: true
+          getDns: true,
+          timeout: 250
         });
         var preconnecter = new preconnect();
         var eventOptions = {
