@@ -30,7 +30,7 @@ npm i preconnect --save
 If you're not the npm type, grab one (or both) of the minified versions in [this repo's `dist` folder](https://github.com/malchata/preconnect/tree/master/dist). There are two minified versions:
 
 - [`preconnect.min.js`](https://raw.githubusercontent.com/malchata/preconnect/master/dist/preconnect.min.js) is the Babel-fied ES5 build. It assigns a variable named `preconnect` on the `window`.
-- [`preconnect.min.mjs`](https://raw.githubusercontent.com/malchata/preconnect/master/dist/preconnect.min.mjs) is the untransformed minified ES6 build. Its `default` `export` is a single eponymously named function.
+- [`preconnect.min.mjs`](https://raw.githubusercontent.com/malchata/preconnect/master/dist/preconnect.min.mjs) is the untransformed minified ES6 build. Its `default` `export` is a function eponymously named `preconnect`.
 
 ## Usage
 
@@ -55,10 +55,10 @@ In the above example, an early connection is established to the host specified i
 
 ## Options
 
-When you instantiate a new instance of preconnect, you can pass in an options object. There are currently only two options:
+When you instantiate a new instance of preconnect, you can pass in an options object. There are two options:
 
 - **`getDns`** _(default: `false`)_<br>Inject a [`dns-prefetch` hint](https://developer.mozilla.org/en-US/docs/Learn/Performance/dns-prefetch) in addition to a `preconnect` hint. Some browsers don't support `preconnect`, but some of those browsers _do_ support `dns-prefetch`. Enabling this ensures those browsers still receive some kind of benefit.
-- **`timeout`** _(default: `0`)_<br>This script can use [`requestIdleCallback`](https://developer.mozilla.org/en-US/docs/Web/API/Window/requestIdleCallback) to take advantage of idle browser time. This helps to reduce monopolization of the main thread so that the page is more responsive to user input. This option specifies, in milliseconds, the deadline by which `requestIdleCallback` must inject the resource hint elements into the document `<head>`. A value of `0` (also the default value) disables the use of `requestIdleCallback` entirely.
+- **`timeout`** _(default: `0`)_<br>This script can use [`requestIdleCallback`](https://developer.mozilla.org/en-US/docs/Web/API/Window/requestIdleCallback) to take advantage of idle browser time. This helps to reduce monopolization of the main thread so that the page is more responsive to user input. This option specifies, in milliseconds, the deadline by which `requestIdleCallback` must inject the resource hint elements into the document `<head>`. A value of `0` (the default) disables the use of `requestIdleCallback` entirely.
 
 ## Contributing
 
@@ -66,4 +66,4 @@ If you'd like to contribute, please file an issue first so we can discuss. Becau
 
 ## Author info
 
-My name is Jeremy Wagner. I'm an [independent web performance consultant](https://jeremy.codes/) who works with individuals and businesses to help make their sites faster through auditing and/or engineering services. I also [write about web stuff](https://jeremy.codes/writing/), and sometimes I even get to occasionally [talk about web stuff](https://speaking.jeremy.codes/). I also ramble on Twitter [@malchata](https://twitter.com/malchata).
+My name is Jeremy Wagner. I'm an [independent web performance consultant](https://jeremy.codes/). I [write about web stuff](https://jeremy.codes/writing/), and sometimes I even get to [talk about web stuff](https://speaking.jeremy.codes/). I also ramble on Twitter [@malchata](https://twitter.com/malchata) and make [web performance videos on YouTube](https://hellforperf.dev/).
